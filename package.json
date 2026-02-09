@@ -1,0 +1,17 @@
+{
+  "name": "extension-download-site",
+  "version": "1.0.0",
+  "description": "Site de téléchargement d'extension Chrome",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server",
+    "dev": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "extension",
+    "chrome",
+    "download"
+  ],
+  "author": "",
+  "license": "MIT"
+}

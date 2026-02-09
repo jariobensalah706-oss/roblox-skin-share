@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Skin Share - Extension Chrome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .extension-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .features {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .installation-steps {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .installation-steps h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .step {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            border: 2px solid #667eea;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffebee;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success-message {
+            color: #388e3c;
+            margin-top: 20px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="extension-icon">🎨</div>
+        <h1>Roblox Skin Share</h1>
+        <p class="subtitle">Extension pour partager et gérer vos skins Roblox</p>
+
+        <div class="info-box">
+            <h3>Avant de commenced</h3>
+            <p>Assurez-vous que vous utilisez Google Chrome ou un navigateur basé sur Chromium (Edge, Brave, Opera, etc.)</p>
+        </div>
+
+        <button class="download-btn" onclick="downloadExtension()">📥 Télécharger l'Extension</button>
+
+        <div class="installation-steps">
+            <h3>Comment installer?</h3>
+            <div class="step" data-step="1">Téléchargez le fichier .zip</div>
+            <div class="step" data-step="2">Décompressez le fichier sur votre ordinateur</div>
+            <div class="step" data-step="3">Ouvrez <code>chrome://extensions/</code> dans votre navigateur</div>
+            <div class="step" data-step="4">Activez le "Mode de développement" (en haut à droite)</div>
+            <div class="step" data-step="5">Cliquez sur "Charger l'extension non empaquetée"</div>
+            <div class="step" data-step="6">Sélectionnez le dossier décompressé</div>
+        </div>
+
+        <div class="features">
+            <h3>Avantages</h3>
+            <div class="feature-item">Installation facile et rapide</div>
+            <div class="feature-item">Disponible n'importe où</div>
+            <div class="feature-item">Aucune inscription requise</div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <footer>
+            <p>Extension partagée avec ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        function downloadExtension() {
+            // Remplacez avec le chemin vers votre fichier .crx ou .zip
+            const extensionFile = 'roblox skin share.zip'; // ou 'extension.zip'
+            
+            // Vérifier si le fichier existe
+            fetch(extensionFile, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        // Le fichier existe, procéder au téléchargement
+                        const a = document.createElement('a');
+                        a.href = extensionFile;
+                        a.download = extensionFile;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        
+                        // Afficher message de succès
+                        showSuccessMessage('Le téléchargement a commencé!');
+                    } else {
+                        throw new Error('Fichier non trouvé');
+                    }
+                })
+                .catch(error => {
+                    showErrorMessage('Erreur: Le fichier d\'extension n\'a pas été trouvé. Contactez l\'administrateur.');
+                    console.error(error);
+                });
+        }
+
+        function showErrorMessage(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        function showSuccessMessage(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
