@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Roblox Skin Share",
+  "description": "Partage ton skin Roblox (usage personnel uniquement)",
+  "version": "1.4",
+
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "clipboardWrite",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "*://*.roblox.com/*",
+    "*://thumbnails.roblox.com/*"
+  ],
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "roblox-skin-share@extension-privee.com",
+      "strict_min_version": "113.0",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "113.0"
+    }
+  }
+}
