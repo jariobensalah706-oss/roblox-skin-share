@@ -1,248 +1,279 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roblox Skin Share</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Skin Share - Extension Chrome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: radial-gradient(circle at top, #0f1c3a, #050814 70%);
-    color: #eaeaf0;
-    min-height: 100vh;
-}
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
 
-/* HEADER */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 60px;
-}
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
 
-.logo {
-    font-size: 20px;
-    font-weight: 700;
-}
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
 
-nav a {
-    color: #cfd3ff;
-    text-decoration: none;
-    margin-left: 25px;
-    font-size: 14px;
-}
+        .extension-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 80px 20px 40px;
-}
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
 
-.hero h1 {
-    font-size: 44px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
+        .info-box h3 {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
 
-.hero h1 span {
-    color: #5da9ff;
-}
+        .info-box p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
 
-.hero p {
-    font-size: 16px;
-    color: #b8c0ff;
-    max-width: 600px;
-    margin: 0 auto 40px;
-}
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
 
-/* BUTTONS */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.btn-primary {
-    background: linear-gradient(135deg, #4da3ff, #6f7cff);
-    padding: 15px 35px;
-    border-radius: 30px;
-    color: #fff;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-}
+        .download-btn:active {
+            transform: translateY(0);
+        }
 
-.btn-secondary {
-    background: transparent;
-    border: 1px solid #5da9ff;
-    padding: 15px 35px;
-    border-radius: 30px;
-    color: #5da9ff;
-    cursor: pointer;
-}
+        .features {
+            text-align: left;
+            margin: 30px 0;
+        }
 
-/* SECTIONS */
-.section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
 
-.card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 30px;
-    margin-bottom: 30px;
-}
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 14px;
+        }
 
-/* INSTALLATION */
-.steps .step {
-    margin-bottom: 12px;
-    font-size: 14px;
-}
+        .feature-item::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
 
-/* FEATURES */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
+        .installation-steps {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: left;
+        }
 
-.feature {
-    background: rgba(255,255,255,0.03);
-    border-radius: 14px;
-    padding: 25px;
-    text-align: center;
-}
+        .installation-steps h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
 
-/* MESSAGES */
-.error-message {
-    color: #ff6b6b;
-    background: rgba(255,0,0,0.1);
-    padding: 12px;
-    border-radius: 8px;
-    display: none;
-    margin-top: 20px;
-}
+        .step {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
 
-.success-message {
-    color: #6bff9c;
-    background: rgba(0,255,120,0.1);
-    padding: 12px;
-    border-radius: 8px;
-    display: none;
-    margin-top: 20px;
-}
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            border: 2px solid #667eea;
+        }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #7f88d9;
-    font-size: 13px;
-}
-</style>
+        .error-message {
+            color: #d32f2f;
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffebee;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success-message {
+            color: #388e3c;
+            margin-top: 20px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <div class="extension-icon">🎨</div>
+        <h1>Roblox Skin Share</h1>
+        <p class="subtitle">Extension pour partager et gérer vos skins Roblox</p>
 
-<header>
-    <div class="logo">ROBLOX SKIN SHARE</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Download</a>
-        <a href="#">Guide</a>
-    </nav>
-</header>
+        <div class="info-box">
+            <h3>Avant de commenced</h3>
+            <p>Assurez-vous que vous utilisez Google Chrome ou un navigateur basé sur Chromium (Edge, Brave, Opera, etc.)</p>
+        </div>
 
-<section class="hero">
-    <h1>Share and manage your <span>Roblox skins</span></h1>
-    <p>Extension pour partager et gérer vos skins Roblox facilement, sans inscription.</p>
+        <button class="download-btn" onclick="downloadExtension()">📥 Télécharger l'Extension</button>
 
-    <div class="buttons">
-        <button class="btn-primary" onclick="downloadExtension()">📥 Télécharger</button>
-        <button class="btn-secondary">Comment installer</button>
+        <div class="installation-steps">
+            <h3>Comment installer?</h3>
+            <div class="step" data-step="1">Téléchargez le fichier .zip</div>
+            <div class="step" data-step="2">Décompressez le fichier sur votre ordinateur</div>
+            <div class="step" data-step="3">Ouvrez <code>chrome://extensions/</code> dans votre navigateur</div>
+            <div class="step" data-step="4">Activez le "Mode de développement" (en haut à droite)</div>
+            <div class="step" data-step="5">Cliquez sur "Charger l'extension non empaquetée"</div>
+            <div class="step" data-step="6">Sélectionnez le dossier décompressé</div>
+        </div>
+
+        <div class="features">
+            <h3>Avantages</h3>
+            <div class="feature-item">Installation facile et rapide</div>
+            <div class="feature-item">Disponible n'importe où</div>
+            <div class="feature-item">Aucune inscription requise</div>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <footer>
+            <p>Extension partagée avec ton amie</p>
+        </footer>
     </div>
 
-    <div class="error-message" id="errorMessage"></div>
-    <div class="success-message" id="successMessage"></div>
-</section>
+    <script>
+        function downloadExtension() {
+            // Remplacez avec le chemin vers votre fichier .crx ou .zip
+            const extensionFile = 'roblox skin share.zip'; // ou 'extension.zip'
+            
+            // Vérifier si le fichier existe
+            fetch(extensionFile, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        // Le fichier existe, procéder au téléchargement
+                        const a = document.createElement('a');
+                        a.href = extensionFile;
+                        a.download = extensionFile;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        
+                        // Afficher message de succès
+                        showSuccessMessage('Le téléchargement a commencé!');
+                    } else {
+                        throw new Error('Fichier non trouvé');
+                    }
+                })
+                .catch(error => {
+                    showErrorMessage('Erreur: Le fichier d\'extension n\'a pas été trouvé. Contactez l\'administrateur.');
+                    console.error(error);
+                });
+        }
 
-<section class="section">
-    <div class="card">
-        <h3>Avant de commencer</h3>
-        <p>Utilisez Google Chrome ou un navigateur basé sur Chromium (Edge, Brave, Opera).</p>
-    </div>
+        function showErrorMessage(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
 
-    <div class="card steps">
-        <h3>Installation</h3>
-        <div class="step">1. Téléchargez le fichier .zip</div>
-        <div class="step">2. Décompressez le fichier</div>
-        <div class="step">3. Ouvrez chrome://extensions/</div>
-        <div class="step">4. Activez le mode développeur</div>
-        <div class="step">5. Charger l’extension non empaquetée</div>
-        <div class="step">6. Sélectionnez le dossier</div>
-    </div>
-
-    <div class="features">
-        <div class="feature">⚡ Installation rapide</div>
-        <div class="feature">🌍 Disponible partout</div>
-        <div class="feature">🔒 Aucune inscription</div>
-        <div class="feature">❤️ Extension partagée</div>
-    </div>
-</section>
-
-<footer>
-    Roblox Skin Share — Extension communautaire
-</footer>
-
-<script>
-function downloadExtension() {
-    // ⚠️ NOM EXACT DU FICHIER (respecte les espaces)
-    const extensionFile = "roblox skin share.zip";
-
-    fetch(extensionFile, { method: "HEAD" })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Fichier non trouvé");
-            }
-
-            const a = document.createElement("a");
-            a.href = extensionFile;
-            a.download = extensionFile;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-
-            showSuccessMessage("Le téléchargement a commencé !");
-        })
-        .catch(() => {
-            showErrorMessage("Erreur : fichier introuvable. Vérifie qu'il est bien sur le site.");
-        });
-}
-
-function showErrorMessage(msg) {
-    const el = document.getElementById("errorMessage");
-    el.textContent = msg;
-    el.style.display = "block";
-    setTimeout(() => el.style.display = "none", 5000);
-}
-
-function showSuccessMessage(msg) {
-    const el = document.getElementById("successMessage");
-    el.textContent = msg;
-    el.style.display = "block";
-    setTimeout(() => el.style.display = "none", 5000);
-}
-</script>
-
+        function showSuccessMessage(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
